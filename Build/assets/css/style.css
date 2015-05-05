@@ -178,7 +178,7 @@ ul {
   margin-left: 45px; }
   ul.link-list {
     margin: 0 0 0 15px;
-    list-style: url(/assets/images/chevron-right.png); }
+    list-style: url(../images/chevron-right.png); }
     ul.link-list li {
       margin: 0 0 3px 0;
       padding: 0 0 0 3px; }
@@ -295,7 +295,7 @@ a.message {
     background-repeat: no-repeat;
     background-position: 50% 50%; }
   a.message div.icon-attachment {
-    background-image: url(/assets/images/attachment.png); }
+    background-image: url(../images/attachment.png); }
 
 a.message + a.message {
   border-top: solid 1px #e9e9e9; }
