@@ -1,0 +1,56 @@
+<!-- $title Home -->
+
+<html>
+<head>
+	<!-- @include html_head -->
+	<!-- @include messages_data -->
+	<script>
+
+	$(document).ready(function() {
+	  renderMessages("#messages", 10, true, true);
+	});
+
+	</script>
+</head>
+<body>
+	<!-- @include _account_bar -->
+	<!-- @include _header -->
+
+	<section id="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h2>Businesses</h2>
+					<ul class="link-list">
+						<li>
+							<a href="<!-- @path biz1/index.html -->">Jane's Bakery</a><br />
+							ABN 66 123 456 789
+						</li>
+					</ul>
+					<div class="section-box">
+						+ <a href="">Add a business</a>
+					</div>
+
+					<h2>Noteboooks</h2>
+					<ul>
+						<li>List</li>
+						<li>Add</li>
+					</ul>
+
+				</div>
+				<div class="col-md-4">
+					<h2>Recent messages</h2>
+					<div id="messages"></div>
+				</div>
+				<div class="col-md-4">
+					<h2>News</h2>
+					<!-- @include _three_news_stories -->
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- @include _footer -->
+
+</body>
+</html>

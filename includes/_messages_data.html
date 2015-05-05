@@ -1,0 +1,87 @@
+<script id="message-template" type="text/x-handlebars-template">
+	{{#messages}}
+	<a href="#" class="message {{#read}}read{{/read}}">
+		<div class="icons {{#hasAttachment attachments}}{{/hasAttachment}}"></div>
+		<div class="date">{{ date }}</div>
+		<div class="from">{{ from }}</div>
+		<div class="subject">{{ subject }}</div>
+		<div class="tags">
+			{{#tags}}
+			<span>{{ . }}</span>
+			{{/tags}}
+		</div>
+	</a>
+	{{/messages}}
+</script>
+<script>
+
+var messages = { "messages": [
+	{
+		"date": "Tue 5 May",
+		"from": "ASIC",
+		"subject": "Successful renewal of business: Jane's Bakery",
+		"attachments": [ "Receipt.pdf" ],
+		"read": false,
+		"tags": [ "ASIC", "Receipt"	]
+	},
+	{
+		"date": "Mon 4 May",
+		"from": "ATO",
+		"subject": "Your application",
+		"attachments": ["Form.pdf", "Info.pdf"],
+		"read": false,
+		"tags": [ "ATO", "Tax", "Form" ]
+	},
+	{
+		"date": "Thu 30 Apr",
+		"from": "ASIC",
+		"subject": "ASIC Connect account activation",
+		"attachments": [],
+		"read": true,
+		"tags": [ "ASIC" ]
+	},
+	{
+		"date": "Thu 30 Apr",
+		"from": "ASIC",
+		"subject": "Confirm your email address",
+		"attachments": [],
+		"read": true,
+		"tags": [ "ASIC" ]
+	},
+	{
+		"date": "Mon 27 Apr",
+		"from": "ATO",
+		"subject": "ATO Small Business News",
+		"attachments": [],
+		"read": false,
+		"tags": [ "ATO", "Tax", "News" ]
+	}
+]};
+
+	function renderMessages(target, maxCount, unreadOnly, preview) {
+		Handlebars.registerHelper('hasAttachment', function(items, options) {
+			return (items.length > 0) ? "icon-attachment" : "";
+		});
+
+		var target = $(target);
+		if (preview)
+			target.addClass('message-list-preview');
+
+		var display_messages = { "messages": [] };
+
+		if (unreadOnly)
+		{
+			display_messages.messages = $.grep(messages.messages, function(m) {
+				return !m.read;
+			});			
+		}
+		else
+		{
+			display_messages.messages = messages.messages;
+		}
+
+		var source = $("#message-template").html();
+		var template = Handlebars.compile(source);
+		target.html(template(display_messages));
+	}
+</script>

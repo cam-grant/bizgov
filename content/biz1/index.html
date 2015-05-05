@@ -1,0 +1,90 @@
+<!-- $title Home -->
+
+<html>
+<head>
+	<!-- @include html_head -->
+	<!-- @include messages_data -->
+	<script>
+
+	$(document).ready(function() {
+	  renderMessages("#messages", 10, true, true);
+	});
+
+	</script>
+</head>
+<body>
+	<!-- @include _account_bar -->
+	<!-- @include _header -->
+
+	<section id="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<!-- @include _sidebar -->
+				</div>
+				<div class="col-md-9">
+					<div class="row">
+						<div class="col-md-12">
+							<h1 class="no-margin">Jane's Bakery</h1>
+							<div class="sub-head">
+								ABN 66 123 456 789 <span>&ndash;</span>
+								Individual / Sole trader <span>&ndash;</span>
+								Active from 1 Jan 2008 <span>&ndash;</span>
+								<a href="#">Registration details</a>
+							</div>
+							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<h2>Frequently used services</h2>
+							<!-- @include _frequent_services -->
+							<div class="section-box">
+								More <a href="<!-- @path biz1/services.html -->">services</a>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<h2>Recent messages</h2>							
+							<div id="messages"></div>
+							<div class="section-box">
+								Go to <a href="<!-- @path biz1/messages.html -->">inbox</a>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<h2>News</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<!-- @include _three_news_stories -->
+						</div>
+						<div class="col-md-6">
+							<div class="news-story">
+								<a href="#">Protect your business from cybercrime</a>
+								<p>The Australian Cybercrime Online Reporting Network (ACORN) is an Australia-wide initiative that allows the public to securely report cybercrime.</p>
+							</div>
+							<div class="news-story">
+								<a href="#">Get the latest news on international markets</a>
+								<p>Business Envoy is a new online publication from the Department of Foreign Affairs and Trade (DFAT) that brings you the latest news on key trade and investment markets.</p>
+							</div>
+
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="section-footer">
+								More <a href="#">news stories</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- @include _footer -->
+
+</body>
+</html>

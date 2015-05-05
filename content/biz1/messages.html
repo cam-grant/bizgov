@@ -1,0 +1,84 @@
+<!-- $title Messages -->
+
+<html>
+<head>
+	<!-- @include html_head -->	
+</head>
+<body>
+	<!-- @include account_bar -->
+	<!-- @include header -->
+
+	<!-- @include messages_data -->
+	<script>
+
+	$(document).ready(function() {
+		updateMessages(false);	  
+	});
+
+	function updateMessages(unreadyOnly)
+	{
+		renderMessages("#messages", 10, unreadyOnly, false);	
+	}
+
+	</script>
+
+	<section id="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<!-- @include _sidebar -->
+				</div>
+				<div class="col-md-9">
+					<div class="row">
+						<div class="col-md-12">
+							<h1 class="no-margin">Messages</h1>
+							<div class="sub-head">Sent to ABN 66 123 456 789 (Jane's Bakery)</div>
+
+							<div class="messages-toolbar">
+								<div class="btn-group" data-toggle="buttons">
+								  <label class="btn btn-default active" style="width: 70px;" onclick="updateMessages(false)">
+								    <input type="radio" name="options" autocomplete="off" checked>All
+								  </label>
+								  <label class="btn btn-default" onclick="updateMessages(true)">
+								    <input type="radio" name="options" autocomplete="off">Unread
+								  </label>
+								</div>
+
+								<div class="dropdown" style="display: inline-block;">
+									<a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+										Newest first <span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="#">Newest first</a></li>
+										<li><a href="#">Oldest first</a></li>
+									</ul>
+								</div>
+								<div class="dropdown" style="display: inline-block;">
+									<a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+										From anyone <span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="#">ATO</a></li>
+										<li><a href="#">ASIC</a></li>
+										<li><a href="#">...</a></li>
+									</ul>
+								</div>
+
+								<div style="float: right; width: 200px; margin-left: 5px;">
+									<input type="text" class="form-control" placeholder="Search">
+								</div>
+
+							</div>
+
+							<div id="messages"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- @include _footer -->
+
+</body>
+</html>
