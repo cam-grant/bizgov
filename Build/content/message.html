@@ -4,7 +4,114 @@
 
 <link rel='stylesheet' href='../2451643f5fa83f23d177439c542b8f8f.css'>
 <script src='../5a09f2cb6ce01d7ffad1b30e3490ff4d.js'></script>
-<title>Message</title>	
+<title>Message</title>
+	<script id="message-template" type="text/x-handlebars-template">
+	{{#messages}}
+	<a href="message.html?i={{@index}}" class="message {{#read}}read{{/read}}">
+		<div class="icons {{#hasAttachment attachments}}{{/hasAttachment}}"></div>
+		<div class="date">{{ date }}</div>
+		<div class="from">{{ from }}</div>
+		<div class="subject">{{ subject }}</div>
+		<div class="tags">
+			{{#tags}}
+			<span>{{ . }}</span>
+			{{/tags}}
+		</div>
+	</a>
+	{{/messages}}
+</script>
+<script>
+
+var messages = { "messages": [
+	{
+		"date": "Tue 5 May",
+		"from": "ASIC",
+		"subject": "Successful renewal of business name - Jane's Bakery",
+		"attachments": [ "Receipt.pdf" ],
+		"read": false,
+		"tags": [ "ASIC", "Receipt"	]
+	},
+	{
+		"date": "Mon 4 May",
+		"from": "ATO",
+		"subject": "Your application",
+		"attachments": ["Form.pdf", "Info.pdf"],
+		"read": false,
+		"tags": [ "ATO", "Tax", "Form" ]
+	},
+	{
+		"date": "Thu 30 Apr",
+		"from": "ASIC",
+		"subject": "ASIC Connect account activation",
+		"attachments": [],
+		"read": true,
+		"tags": [ "ASIC" ]
+	},
+	{
+		"date": "Thu 30 Apr",
+		"from": "ASIC",
+		"subject": "Confirm your email address",
+		"attachments": [],
+		"read": true,
+		"tags": [ "ASIC" ]
+	},
+	{
+		"date": "Mon 27 Apr",
+		"from": "ATO",
+		"subject": "ATO Small Business News",
+		"attachments": [],
+		"read": false,
+		"tags": [ "ATO", "Tax", "News" ]
+	}
+]};
+
+	function renderMessages(target, maxCount, unreadOnly, preview) {
+		Handlebars.registerHelper('hasAttachment', function(items, options) {
+			return (items.length > 0) ? "icon-attachment" : "";
+		});
+
+		var target = $(target);
+		if (preview)
+			target.addClass('message-list-preview');
+
+		var display_messages = { "messages": [] };
+
+		if (unreadOnly)
+		{
+			display_messages.messages = $.grep(messages.messages, function(m) {
+				return !m.read;
+			});			
+		}
+		else
+		{
+			display_messages.messages = messages.messages;
+		}
+
+		if (maxCount > 0)
+		{
+			display_messages.messages = display_messages.messages.slice(0, maxCount);	
+		}
+
+		var source = $("#message-template").html();
+		var template = Handlebars.compile(source);
+		target.html(template(display_messages));
+	}
+</script>
+	<script>
+
+	$(document).ready(function() {
+		renderMessage();
+	});
+
+	function renderMessage()
+	{
+		var index = parseInt(window.location.search.match(/[0-9]/));
+		var msg = messages.messages[index];
+
+		$("#msg-subject").text(msg.subject);
+	}
+
+	</script>
 </head>
 <body>
 	<div id="account-bar">
@@ -68,7 +175,7 @@
 				<div class="col-sm-3">
 					<ul id="sub-nav">
 	<li><a href="biz1/index.html">Home</a></li>
-	<li><a href="biz1/messages.html">Messages<span>2</span></a></li>
+	<li><a href="biz1/messages.html">Messages<span>3</span></a></li>
 	<li><a href="biz1/services.html">Services</a></li>
 	<li><a href="biz1/representatives.html">Representatives<span>1</span></a></li>
 	<li><a href="biz1/details.html">Business details</a></li>
@@ -79,7 +186,7 @@
 
 				</div>
 				<div class="col-sm-9">
-					<h2>Successful renewal of business: Jane's Bakery</h2>
+					<h2 id="msg-subject"></h2>
 				</div>
 			</div>
 		</div>

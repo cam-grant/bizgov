@@ -1,6 +1,6 @@
 <script id="message-template" type="text/x-handlebars-template">
 	{{#messages}}
-	<a href="#" class="message {{#read}}read{{/read}}">
+	<a href="<!-- @path content/message.html -->?i={{@index}}" class="message {{#read}}read{{/read}}">
 		<div class="icons {{#hasAttachment attachments}}{{/hasAttachment}}"></div>
 		<div class="date">{{ date }}</div>
 		<div class="from">{{ from }}</div>
@@ -19,7 +19,7 @@ var messages = { "messages": [
 	{
 		"date": "Tue 5 May",
 		"from": "ASIC",
-		"subject": "Successful renewal of business: Jane's Bakery",
+		"subject": "Successful renewal of business name - Jane's Bakery",
 		"attachments": [ "Receipt.pdf" ],
 		"read": false,
 		"tags": [ "ASIC", "Receipt"	]
@@ -78,6 +78,11 @@ var messages = { "messages": [
 		else
 		{
 			display_messages.messages = messages.messages;
+		}
+
+		if (maxCount > 0)
+		{
+			display_messages.messages = display_messages.messages.slice(0, maxCount);	
 		}
 
 		var source = $("#message-template").html();

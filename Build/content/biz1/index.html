@@ -7,7 +7,7 @@
 <title>Home</title>
 	<script id="message-template" type="text/x-handlebars-template">
 	{{#messages}}
-	<a href="#" class="message {{#read}}read{{/read}}">
+	<a href="../message.html?i={{@index}}" class="message {{#read}}read{{/read}}">
 		<div class="icons {{#hasAttachment attachments}}{{/hasAttachment}}"></div>
 		<div class="date">{{ date }}</div>
 		<div class="from">{{ from }}</div>
@@ -26,7 +26,7 @@ var messages = { "messages": [
 	{
 		"date": "Tue 5 May",
 		"from": "ASIC",
-		"subject": "Successful renewal of business: Jane's Bakery",
+		"subject": "Successful renewal of business name - Jane's Bakery",
 		"attachments": [ "Receipt.pdf" ],
 		"read": false,
 		"tags": [ "ASIC", "Receipt"	]
@@ -87,6 +87,11 @@ var messages = { "messages": [
 			display_messages.messages = messages.messages;
 		}
 
+		if (maxCount > 0)
+		{
+			display_messages.messages = display_messages.messages.slice(0, maxCount);	
+		}
+
 		var source = $("#message-template").html();
 		var template = Handlebars.compile(source);
 		target.html(template(display_messages));
@@ -95,7 +100,7 @@ var messages = { "messages": [
 	<script>
 
 	$(document).ready(function() {
-	  renderMessages("#messages", 10, true, true);
+	  renderMessages("#messages", 3, false, true);
 	});
 
 	</script>
@@ -162,7 +167,7 @@ var messages = { "messages": [
 				<div class="col-sm-3">
 					<ul id="sub-nav">
 	<li class='current-parent current'><a class='current-parent current' href="index.html">Home</a></li>
-	<li><a href="messages.html">Messages<span>2</span></a></li>
+	<li><a href="messages.html">Messages<span>3</span></a></li>
 	<li><a href="services.html">Services</a></li>
 	<li><a href="representatives.html">Representatives<span>1</span></a></li>
 	<li><a href="details.html">Business details</a></li>
@@ -201,7 +206,7 @@ var messages = { "messages": [
 							<h2>Recent messages</h2>							
 							<div id="messages"></div>
 							<div class="section-box">
-								Go to <a href="messages.html">inbox</a>
+								Go to <a href="messages.html">messages</a>
 							</div>
 						</div>
 					</div>
