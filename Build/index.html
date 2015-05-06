@@ -2,12 +2,12 @@
 <head>
 	<meta name="format-detection" content="telephone=no">
 
-<link rel='stylesheet' href='1fba3b4e1871caf69172df440ce469bf.css'>
+<link rel='stylesheet' href='1007d6f2a0e68a9267eb8aff66665f6d.css'>
 <script src='5a09f2cb6ce01d7ffad1b30e3490ff4d.js'></script>
 <title>Home</title>
 	<script id="message-template" type="text/x-handlebars-template">
 	{{#messages}}
-	<a href="content/message.html?i={{@index}}" class="message {{#read}}read{{/read}}">
+	<a href="content/biz1/message.html?i={{@index}}" class="message {{#read}}read{{/read}}">
 		<div class="icons {{#hasAttachment attachments}}{{/hasAttachment}}"></div>
 		<div class="date">{{ date }}</div>
 		<div class="from">{{ from }}</div>
@@ -29,7 +29,8 @@ var messages = { "messages": [
 		"subject": "Successful renewal of business name - Jane's Bakery",
 		"attachments": [ "Receipt.pdf" ],
 		"read": false,
-		"tags": [ "ASIC", "Receipt"	]
+		"tags": [ "ASIC", "Receipt"	],
+		"body": ""
 	},
 	{
 		"date": "Mon 4 May",
@@ -168,11 +169,11 @@ var messages = { "messages": [
 					<h2>Recently viewed</h2>
 					<a href="content/biz1/index.html" class="card">
 						<div class="heading">Jane's Bakery</div>
-						<div>ABN 66 123 456 789</div>
+						<div class="abn">ABN 66 123 456 789</div>
 					</a>
-							<div class="section-footer">
-								Add a <a href="#" data-toggle="modal" data-target="#add-biz-dialog">business</a> or a <a href="#" data-toggle="modal" data-target="#add-biz-dialog">notebook</a>
-							</div>
+					<div class="section-footer">
+						Add a <a href="#" data-toggle="modal" data-target="#add-biz-dialog">business</a> or a <a href="#" data-toggle="modal" data-target="#add-biz-dialog">notebook</a>
+					</div>
 				</div>
 				<div class="col-sm-9">
 					<div class="row">

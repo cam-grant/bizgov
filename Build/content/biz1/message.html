@@ -2,8 +2,8 @@
 <head>
 	<meta name="format-detection" content="telephone=no">
 
-<link rel='stylesheet' href='../1fba3b4e1871caf69172df440ce469bf.css'>
-<script src='../5a09f2cb6ce01d7ffad1b30e3490ff4d.js'></script>
+<link rel='stylesheet' href='../../1007d6f2a0e68a9267eb8aff66665f6d.css'>
+<script src='../../5a09f2cb6ce01d7ffad1b30e3490ff4d.js'></script>
 <title>Message</title>
 	<script id="message-template" type="text/x-handlebars-template">
 	{{#messages}}
@@ -29,7 +29,8 @@ var messages = { "messages": [
 		"subject": "Successful renewal of business name - Jane's Bakery",
 		"attachments": [ "Receipt.pdf" ],
 		"read": false,
-		"tags": [ "ASIC", "Receipt"	]
+		"tags": [ "ASIC", "Receipt"	],
+		"body": ""
 	},
 	{
 		"date": "Mon 4 May",
@@ -108,7 +109,26 @@ var messages = { "messages": [
 		var index = parseInt(window.location.search.match(/[0-9]/));
 		var msg = messages.messages[index];
 
+		$("#msg-date").text(msg.date + ' 9:30 AM');
+		$("#msg-from").text(msg.from);
 		$("#msg-subject").text(msg.subject);
+
+		var html = '';
+		if (msg.attachments.length > 0)
+		{
+			for (var i = 0; i < msg.attachments.length; i++) 
+			{
+				html += '<div class="msg-attachment">';
+				html += msg.attachments[i];
+				html += '</div>';
+			}
+		}
+		else
+		{
+			html = "There are no attachments for this message.";
+		}
+
+		$("#msg-attachments").html(html);
 	}
 
 	</script>
@@ -116,7 +136,7 @@ var messages = { "messages": [
 <body>
 	<div id="account-bar">
 	<div class="container-fluid">
-		<a href="../index.html" id="logo">business.gov.au</a>
+		<a href="../../index.html" id="logo">business.gov.au</a>
 	</div>
 </div>
 	<div id="add-biz-dialog" class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -158,8 +178,8 @@ var messages = { "messages": [
 
     <nav>
       <ul>
-        <li><a href="../index.html" class="home">&nbsp;<span>&nbsp;</span></a></li>
-        <li><a href="biz1/index.html">Jane's Bakery<span>ABN 66 123 456 789</span></a></li>
+        <li><a href="../../index.html" class="home">&nbsp;<span>&nbsp;</span></a></li>
+        <li class='current-parent'><a class='current-parent' href="index.html">Jane's Bakery<span>ABN 66 123 456 789</span></a></li>
         <!-- <li><a href="">Jane's Catering Services<span>ABN 66 987 654 321</span></a></li> -->
         <li><a href="#" class="add" data-toggle="modal" data-target="#add-biz-dialog"></a></li>
       </ul>
@@ -174,19 +194,42 @@ var messages = { "messages": [
 			<div class="row">
 				<div class="col-sm-3">
 					<ul id="sub-nav">
-	<li><a href="biz1/index.html">Home</a></li>
-	<li><a href="biz1/messages.html">Messages<span>3</span></a></li>
-	<li><a href="biz1/services.html">Services</a></li>
-	<li><a href="biz1/representatives.html">Representatives<span>1</span></a></li>
-	<li><a href="biz1/details.html">Business details</a></li>
-	<li><a href="biz1/settings.html">Notification settings</a></li>
+	<li class='current-parent'><a class='current-parent' href="index.html">Home</a></li>
+	<li><a href="messages.html">Messages<span>3</span></a></li>
+	<li><a href="services.html">Services</a></li>
+	<li><a href="representatives.html">Representatives<span>1</span></a></li>
+	<li><a href="details.html">Business details</a></li>
+	<li><a href="settings.html">Notification settings</a></li>
 	<li class="sep"></li>
-	<li class="icon-cloud"><a href="biz1/vault.html">Vault</a></li>
+	<li class="icon-cloud"><a href="vault.html">Vault</a></li>
 </ul>
 
 				</div>
 				<div class="col-sm-9">
-					<h2 id="msg-subject"></h2>
+					<div class="message-viewer">
+						<div class="row">
+							<div class="col-sm-8">
+								<div id="msg-from" class="section-header"></div>
+								<h2 id="msg-subject"></h2>
+								<div id="msg-date"></div>
+								<div id="msg-body">
+									<p>Dear Jane,</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel bibendum nibh.</p>
+									<p>Phasellus a neque at metus dapibus hendrerit vel sit amet erat. Ut eu justo dictum, dictum felis vel, pellentesque justo. Vivamus pretium sit amet metus tincidunt euismod. Donec sit amet sapien lobortis, commodo risus quis, posuere diam. Suspendisse nulla lorem, hendrerit eu blandit at, imperdiet nec nibh. Morbi viverra odio nunc, ac congue ex dictum in. Integer a urna porta, vehicula nisl sit amet, fringilla ante.</p>
+									<p>Mauris tortor arcu, posuere sed tincidunt sagittis, finibus a massa. Nullam aliquet tellus in tincidunt venenatis. Fusce mollis gravida est, sed auctor ipsum gravida vitae.</p>
+									<p>Regards,</p>
+									<p>Fusce mollis</p>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="section-header">Attachments</div>
+								<div id="msg-attachments"></div>
+
+
+
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -196,7 +239,7 @@ var messages = { "messages": [
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-12">
-				<img src="../assets/images/aus-coat-of-arms.png" class="pull-right" />	
+				<img src="../../assets/images/aus-coat-of-arms.png" class="pull-right" />	
 			</div>
 		</div>
 

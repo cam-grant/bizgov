@@ -1,6 +1,6 @@
 <script id="message-template" type="text/x-handlebars-template">
 	{{#messages}}
-	<a href="<!-- @path content/message.html -->?i={{@index}}" class="message {{#read}}read{{/read}}">
+	<a href="<!-- @path content/biz1/message.html -->?i={{@index}}" class="message {{#read}}read{{/read}}">
 		<div class="icons {{#hasAttachment attachments}}{{/hasAttachment}}"></div>
 		<div class="date">{{ date }}</div>
 		<div class="from">{{ from }}</div>
@@ -22,7 +22,8 @@ var messages = { "messages": [
 		"subject": "Successful renewal of business name - Jane's Bakery",
 		"attachments": [ "Receipt.pdf" ],
 		"read": false,
-		"tags": [ "ASIC", "Receipt"	]
+		"tags": [ "ASIC", "Receipt"	],
+		"body": ""
 	},
 	{
 		"date": "Mon 4 May",

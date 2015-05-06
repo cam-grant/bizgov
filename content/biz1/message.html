@@ -1,0 +1,85 @@
+<!-- $title Message -->
+
+<html>
+<head>
+	<!-- @include _html_head -->
+	<!-- @include _messages_data -->
+	<script>
+
+	$(document).ready(function() {
+		renderMessage();
+	});
+
+	function renderMessage()
+	{
+		var index = parseInt(window.location.search.match(/[0-9]/));
+		var msg = messages.messages[index];
+
+		$("#msg-date").text(msg.date + ' 9:30 AM');
+		$("#msg-from").text(msg.from);
+		$("#msg-subject").text(msg.subject);
+
+		var html = '';
+		if (msg.attachments.length > 0)
+		{
+			for (var i = 0; i < msg.attachments.length; i++) 
+			{
+				html += '<div class="msg-attachment">';
+				html += msg.attachments[i];
+				html += '</div>';
+			}
+		}
+		else
+		{
+			html = "There are no attachments for this message.";
+		}
+
+		$("#msg-attachments").html(html);
+	}
+
+	</script>
+</head>
+<body>
+	<!-- @include _account_bar -->
+	<!-- @include _header -->
+
+	<section id="main">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3">
+					<!-- @include _sidebar -->
+				</div>
+				<div class="col-sm-9">
+					<div class="message-viewer">
+						<div class="row">
+							<div class="col-sm-8">
+								<div id="msg-from" class="section-header"></div>
+								<h2 id="msg-subject"></h2>
+								<div id="msg-date"></div>
+								<div id="msg-body">
+									<p>Dear Jane,</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel bibendum nibh.</p>
+									<p>Phasellus a neque at metus dapibus hendrerit vel sit amet erat. Ut eu justo dictum, dictum felis vel, pellentesque justo. Vivamus pretium sit amet metus tincidunt euismod. Donec sit amet sapien lobortis, commodo risus quis, posuere diam. Suspendisse nulla lorem, hendrerit eu blandit at, imperdiet nec nibh. Morbi viverra odio nunc, ac congue ex dictum in. Integer a urna porta, vehicula nisl sit amet, fringilla ante.</p>
+									<p>Mauris tortor arcu, posuere sed tincidunt sagittis, finibus a massa. Nullam aliquet tellus in tincidunt venenatis. Fusce mollis gravida est, sed auctor ipsum gravida vitae.</p>
+									<p>Regards,</p>
+									<p>Fusce mollis</p>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="section-header">Attachments</div>
+								<div id="msg-attachments"></div>
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- @include _footer -->
+
+</body>
+</html>

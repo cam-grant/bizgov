@@ -555,8 +555,6 @@ a.card
 	background-color: rgb(247, 247, 247);
 	padding: 15px 20px;
 	margin: 0 0 5px 0;
-	font-weight: 300;
-	color: #333;
 	text-decoration: none;
 	display: block;
 
@@ -566,8 +564,16 @@ a.card
 		color: #333;
 	}
 
+	div.abn
+	{
+		font-weight: 300 !important;
+		color: #555;
+	}
+
 	&:hover
 	{
 		background-color: $light-blue;
 	}
 }
+
+@import 'message_viewer';
