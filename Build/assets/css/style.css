@@ -18,7 +18,7 @@ a {
     color: #2e8aca; }
 
 #account-bar {
-  background-color: #222; }
+  background-color: #333333; }
   #account-bar a#logo {
     display: inline-block;
     font-size: 14pt;
@@ -33,7 +33,7 @@ a {
       text-decoration: none; }
 
 header {
-  background-color: #cccccc; }
+  background-color: #dddddd; }
 
 footer {
   margin: 30px 0 60px 0;
@@ -55,7 +55,7 @@ nav {
       nav ul li a {
         display: inline-block;
         padding: 10px 30px;
-        background-color: #e3e3e3;
+        background-color: #eaeaea;
         text-decoration: none; }
         nav ul li a span {
           display: block;
@@ -66,7 +66,7 @@ nav {
           color: #111;
           text-decoration: none; }
         nav ul li a:hover {
-          background-color: #f5f5f5; }
+          background-color: #f7f7f7; }
         nav ul li a.current, nav ul li a.current-parent {
           background-color: #fff; }
         nav ul li a.home {
@@ -79,7 +79,7 @@ nav {
           padding: 0;
           width: 40px;
           height: 40px;
-          background-color: #cccccc;
+          background-color: #dddddd;
           background-image: url(../images/add.png);
           background-position: 50% 50%;
           background-repeat: no-repeat; }
@@ -110,7 +110,7 @@ div#search {
     color: #fff;
     background-color: #999; }
     div#search button:hover {
-      background-color: #005ea5; }
+      background-color: #0d7abf; }
 
 section#main {
   margin: 0;
@@ -136,10 +136,10 @@ ul#sub-nav {
       ul#sub-nav li a:visited {
         color: #005ea5; }
       ul#sub-nav li a:hover {
-        background-color: #f3f7fa; }
+        background-color: #e9f3fc; }
     ul#sub-nav li.current a {
       color: whitesmoke;
-      background-color: #005ea5; }
+      background-color: #0d7abf; }
     ul#sub-nav li.current span {
       color: #fff; }
     ul#sub-nav li.sep {
@@ -165,7 +165,7 @@ h2 {
   color: #333;
   margin: 0 0 15px 0;
   padding: 5px 0 12px 0;
-  border-bottom: solid 5px #c2d7e8; }
+  border-bottom: solid 5px #e9f3fc; }
 
 div.sub-head {
   margin: 5px 0 45px 0;
@@ -285,7 +285,7 @@ a.message {
       color: #333;
       font-weight: normal; }
   a.message:hover {
-    background-color: #f3f7fa; }
+    background-color: #f2f8fd; }
   a.message div.icons {
     display: inline-block;
     float: left;
@@ -305,8 +305,22 @@ div.message-list-preview div.tags {
 
 div.section-box {
   margin: 15px 0;
-  padding: 8px 10px;
-  background-color: #f3f7fa; }
+  padding: 8px 15px;
+  background-color: #f2f8fd; }
 
 div.section-footer {
   margin: 15px 0 30px 0; }
+
+a.card {
+  background-color: #f7f7f7;
+  padding: 15px 20px;
+  margin: 0 0 5px 0;
+  font-weight: 300;
+  color: #333;
+  text-decoration: none;
+  display: block; }
+  a.card div.heading {
+    font-weight: 600;
+    color: #333; }
+  a.card:hover {
+    background-color: #e9f3fc; }

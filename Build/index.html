@@ -2,7 +2,7 @@
 <head>
 	<meta name="format-detection" content="telephone=no">
 
-<link rel='stylesheet' href='2451643f5fa83f23d177439c542b8f8f.css'>
+<link rel='stylesheet' href='1fba3b4e1871caf69172df440ce469bf.css'>
 <script src='5a09f2cb6ce01d7ffad1b30e3490ff4d.js'></script>
 <title>Home</title>
 	<script id="message-template" type="text/x-handlebars-template">
@@ -164,32 +164,25 @@ var messages = { "messages": [
 	<section id="main">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-sm-4">
-					<h2>Businesses</h2>
-					<div class="section-box">
-						<ul class="link-list">
-							<li>
-								<a href="content/biz1/index.html">Jane's Bakery</a><br />
-								ABN 66 123 456 789
-							</li>
-						</ul>
-					</div>
-					<div class="section-footer">
-						<a>Add a business</a>
-					</div>
-
-					<h2>Noteboooks</h2>
-					<div class="section-footer">
-						<a>Add a notebook</a>
-					</div>
+				<div class="col-sm-3">
+					<h2>Recently viewed</h2>
+					<a href="content/biz1/index.html" class="card">
+						<div class="heading">Jane's Bakery</div>
+						<div>ABN 66 123 456 789</div>
+					</a>
+							<div class="section-footer">
+								Add a <a href="#" data-toggle="modal" data-target="#add-biz-dialog">business</a> or a <a href="#" data-toggle="modal" data-target="#add-biz-dialog">notebook</a>
+							</div>
 				</div>
-				<div class="col-sm-4">
-					<h2>Recent messages</h2>
-					<div id="messages"></div>
-				</div>
-				<div class="col-sm-4">
-					<h2>News</h2>
-					<div class="news-story">
+				<div class="col-sm-9">
+					<div class="row">
+						<div class="col-sm-6">
+							<h2>Recent messages</h2>
+							<div id="messages"></div>
+						</div>
+						<div class="col-sm-6">
+							<h2>News</h2>
+							<div class="news-story">
 	<a href="#">The future of Australia’s tax system</a>
 	<p>The tax discussion paper has been released. Let’s start a national conversation about tax reform. Your feedback could help improve Australia’s tax system.</p>
 </div>
@@ -203,6 +196,8 @@ var messages = { "messages": [
 	<a href="#">Starting a business as a young person</a>
 	<p>Younger entrepreneurs can start a business as a minor with some proper planning and information!</p>
 </div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
