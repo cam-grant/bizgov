@@ -46,6 +46,28 @@ div.message-viewer
 
 	div.msg-attachment
 	{
-		margin: 0 0 5px 0;
+		display: block;
+		padding: 10px 15px;
+		margin: 0;
+
+		a
+		{
+			padding: 0 0 0 25px;
+			background-repeat: no-repeat;
+			background-position: 0 50%;
+			background-image: url(../images/attachment.png);
+		}
+
+		a.download
+		{
+			position: relative;
+			top: -2px;
+			background: none;
+		}
+
+		&:hover
+		{
+			background-color: $light-blue;
+		}
 	}
 }

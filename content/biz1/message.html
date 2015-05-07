@@ -4,6 +4,17 @@
 <head>
 	<!-- @include _html_head -->
 	<!-- @include _messages_data -->
+	<script id="attachment-template" type="text/x-handlebars-template">
+		{{#attachments}}
+		<div class="msg-attachment">
+			<div class="pull-right">
+				<a href="#" class="download"><img src="<!-- @path assets/images/download.png -->" /></a>
+			</div>
+			<a href="#">{{ . }}</a>
+		</div>
+		{{/attachments}}
+		{{^attachments}}No attachments for this message.{{/attachments}}
+	</script>
 	<script>
 
 	$(document).ready(function() {
@@ -19,6 +30,7 @@
 		$("#msg-from").text(msg.from);
 		$("#msg-subject").text(msg.subject);
 
+		/*
 		var html = '';
 		if (msg.attachments.length > 0)
 		{
@@ -26,6 +38,9 @@
 			{
 				html += '<div class="msg-attachment">';
 				html += msg.attachments[i];
+				html += ' <a href="#">View</a>';
+				html += ' <a href="#">View</a>';
+				html += ' <a href="#">Download</a>';
 				html += '</div>';
 			}
 		}
@@ -35,6 +50,10 @@
 		}
 
 		$("#msg-attachments").html(html);
+		*/
+		var source = $("#attachment-template").html();
+		var template = Handlebars.compile(source);
+		$("#msg-attachments").html(template(msg));
 	}
 
 	</script>
@@ -68,9 +87,6 @@
 							<div class="col-sm-4">
 								<div class="section-header">Attachments</div>
 								<div id="msg-attachments"></div>
-
-
-
 							</div>
 						</div>
 					</div>
