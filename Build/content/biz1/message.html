@@ -114,6 +114,14 @@ var messages = [
 
 	$(document).ready(function() {
 		renderMessage();
+
+		var textbox = $("#add-tag")
+		textbox.keypress(function(e) {
+		    if(e.which == 13) {
+		        $("#msg-tags").append('<div><a href="#">' + textbox.val() + '</a></div>');
+		        textbox.val('');
+		    }
+		});
 	});
 
 	function renderMessage()
