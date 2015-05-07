@@ -15,6 +15,13 @@
 		{{/attachments}}
 		{{^attachments}}No attachments for this message.{{/attachments}}
 	</script>
+	<script id="tag-template" type="text/x-handlebars-template">
+		{{#tags}}
+		<div>
+			<a href="#">{{ . }}</a>
+		</div>
+		{{/tags}}
+	</script>
 	<script>
 
 	$(document).ready(function() {
@@ -30,30 +37,13 @@
 		$("#msg-from").text(msg.from);
 		$("#msg-subject").text(msg.subject);
 
-		/*
-		var html = '';
-		if (msg.attachments.length > 0)
-		{
-			for (var i = 0; i < msg.attachments.length; i++) 
-			{
-				html += '<div class="msg-attachment">';
-				html += msg.attachments[i];
-				html += ' <a href="#">View</a>';
-				html += ' <a href="#">View</a>';
-				html += ' <a href="#">Download</a>';
-				html += '</div>';
-			}
-		}
-		else
-		{
-			html = "There are no attachments for this message.";
-		}
-
-		$("#msg-attachments").html(html);
-		*/
 		var source = $("#attachment-template").html();
 		var template = Handlebars.compile(source);
 		$("#msg-attachments").html(template(msg));
+
+		source = $("#tag-template").html();
+		template = Handlebars.compile(source);
+		$("#msg-tags").html(template(msg));
 	}
 
 	</script>
@@ -78,15 +68,20 @@
 								<div id="msg-body">
 									<p>Dear Jane,</p>
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel bibendum nibh.</p>
+									<p><a href="#">http://agency.gov.au/deep-link-direct-to-service</a></p>
 									<p>Phasellus a neque at metus dapibus hendrerit vel sit amet erat. Ut eu justo dictum, dictum felis vel, pellentesque justo. Vivamus pretium sit amet metus tincidunt euismod. Donec sit amet sapien lobortis, commodo risus quis, posuere diam. Suspendisse nulla lorem, hendrerit eu blandit at, imperdiet nec nibh. Morbi viverra odio nunc, ac congue ex dictum in. Integer a urna porta, vehicula nisl sit amet, fringilla ante.</p>
-									<p>Mauris tortor arcu, posuere sed tincidunt sagittis, finibus a massa. Nullam aliquet tellus in tincidunt venenatis. Fusce mollis gravida est, sed auctor ipsum gravida vitae.</p>
-									<p>Regards,</p>
-									<p>Fusce mollis</p>
+									<p>Mauris tortor arcu, posuere sed tincidunt sagittis, finibus a massa. Nullam aliquet tellus in tincidunt venenatis.</p>
+									<p>Gravida est,</p>
+									<p>Fusce Mollis</p>
 								</div>
 							</div>
 							<div class="col-sm-4">
 								<div class="section-header">Attachments</div>
 								<div id="msg-attachments"></div>
+
+								<div class="section-header" style="margin-top: 60px;">Categories</div>
+								<div id="msg-tags"></div>
+								<input id="add-tag" type="text" placeholder="Add category" />
 							</div>
 						</div>
 					</div>

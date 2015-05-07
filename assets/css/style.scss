@@ -436,116 +436,6 @@ ul.dropdown-menu li a
 	text-decoration: none;
 }
 
-div.messages-toolbar
-{
-	margin: 0;
-	padding: 0 0 15px 0;
-	border-bottom: $thin-border;
-}
-
-a.message
-{
-	display: block;
-	text-decoration: none;
-	margin: 1px 0 0 0;
-	padding: 6px 10px 6px 5px;
-	border-left: solid 8px $link-color;
-
-	div.date
-	{
-		float: right;
-		color: #808080;
-		padding: 1px 0 0 5px;
-		font-size: 10pt;
-		font-weight: 400;
-		margin: 0;
-	}
-
-	div.from
-	{
-		margin-left: 30px;
-		color: #333;
-		font-weight: 300;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-
-	div.subject
-	{
-		margin-left: 30px;
-		color: #111;
-		font-weight: 600;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
-
-	div.tags
-	{
-		margin: 0 0 5px 30px;
-
-		span
-		{
-			display: inline-block;
-			border-radius: 50px;
-			background-color: #bbb;
-			font-size: 10pt;
-			padding: 1px 10px 2px 10px;
-			margin: 5px 0 0 0;
-			color: #fff;
-		}
-	}
-
-	&.read
-	{
-		border-color: #ddd;
-		div.from
-		{
-			color: #808080;
-		}
-		div.subject
-		{
-			color: #333;
-			font-weight: normal;
-		}
-	}
-
-	&:hover
-	{
-		background-color: $extra-light-blue;
-	}
-
-	div.icons
-	{
-		display: inline-block;
-		float: left;
-		width: 30px;
-		height: 30px;
-		margin: 0 4px 0 0;
-		background-repeat: no-repeat;
-		background-position: 50% 50%;
-	}
-
-	div.icon-attachment
-	{
-		background-image: url(../images/attachment.png);
-	}
-}
-
-a.message+a.message
-{
-	border-top: $thin-border;
-}
-
-div.message-list-preview
-{
-	div.tags
-	{
-		display: none;
-	}
-}
-
 div.section-box
 {
 	margin: 15px 0;
@@ -584,5 +474,5 @@ a.card
 	}
 }
 
-@import 'message_viewer';
+@import 'messages';
 @import 'filter_box';
