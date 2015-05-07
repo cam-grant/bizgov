@@ -32,19 +32,29 @@
 	function renderMessage()
 	{
 		var index = parseInt(window.location.search.match(/[0-9]/));
-		var msg = messages.messages[index];
+		var msg = messages[index];
 
 		$("#msg-date").text(msg.date + ' 9:30 AM');
 		$("#msg-from").text(msg.from);
 		$("#msg-subject").text(msg.subject);
 
+		// Attachments
 		var source = $("#attachment-template").html();
 		var template = Handlebars.compile(source);
 		$("#msg-attachments").html(template(msg));
 
+		// Tags
 		source = $("#tag-template").html();
 		template = Handlebars.compile(source);
 		$("#msg-tags").html(template(msg));
+
+		// More from sender
+		/*
+		$("#msg-more-from").text("Recent messages from " + msg.from);
+		source = $("#message-template").html();
+		template = Handlebars.compile(source);
+		$("#msg-more-messages").html(template($.grep(messages, function(m) { return m.from == msg.from; })));
+		*/
 	}
 
 	</script>
@@ -74,7 +84,7 @@
 								<div id="msg-body">
 									<p>Dear Jane,</p>
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel bibendum nibh.</p>
-									<p><a href="#">http://agency.gov.au/deep-link-direct-to-service</a></p>
+									<p><a href="#">http://agency.gov.au/deep-link-to-service</a></p>
 									<p>Phasellus a neque at metus dapibus hendrerit vel sit amet erat. Ut eu justo dictum, dictum felis vel, pellentesque justo. Vivamus pretium sit amet metus tincidunt euismod. Donec sit amet sapien lobortis, commodo risus quis, posuere diam. Suspendisse nulla lorem, hendrerit eu blandit at, imperdiet nec nibh. Morbi viverra odio nunc, ac congue ex dictum in. Integer a urna porta, vehicula nisl sit amet, fringilla ante.</p>
 									<p>Mauris tortor arcu, posuere sed tincidunt sagittis, finibus a massa. Nullam aliquet tellus in tincidunt venenatis.</p>
 									<p>Gravida est,</p>
@@ -82,12 +92,16 @@
 								</div>
 							</div>
 							<div class="col-sm-4">
-								<div class="section-header">Attachments</div>
+								<div class="section-header first">Attachments</div>
 								<div id="msg-attachments"></div>
 
-								<div class="section-header" style="margin-top: 40px;">Categories</div>
+								<div class="section-header">Categories</div>
 								<div id="msg-tags"></div>
 								<input id="add-tag" type="text" placeholder="Add category" />
+								<!-- 
+								<div id="msg-more-from" class="section-header"></div>
+								<div id="msg-more-messages"></div>
+								-->
 							</div>
 						</div>
 					</div>

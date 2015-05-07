@@ -3,6 +3,11 @@ div.messages-toolbar
 	margin: 0;
 	padding: 0 0 15px 0;
 	border-bottom: $thin-border;
+
+	a
+	{
+		text-decoration: none;
+	}
 }
 
 a.message
@@ -11,7 +16,7 @@ a.message
 	text-decoration: none;
 	margin: 1px 0 0 0;
 	padding: 6px 10px 6px 5px;
-	border-left: solid 8px $link-color;
+	border-left: solid 8px $selected-bg-color;
 
 	div.date
 	{
@@ -115,10 +120,15 @@ div.message-viewer
 
 	div.section-header
 	{
-		margin: 0 0 10px 0;
+		margin: 40px 0 10px 0;
 		padding: 0 0 10px 0;
 		font-size: 12pt;
 		border-bottom: solid 1px #e3e3e3;
+
+		&.first
+		{
+			margin-top: 0;
+		}
 	}
 
 	#msg-header
@@ -145,8 +155,8 @@ div.message-viewer
 	{
 		margin: 0;
 		padding: 0;
-		font-size: 10pt;
-		color: #666;
+		color: #333;
+		font-weight: 300;
 	}
 
 	#msg-body

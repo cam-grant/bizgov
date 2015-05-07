@@ -268,13 +268,15 @@ div.messages-toolbar {
   margin: 0;
   padding: 0 0 15px 0;
   border-bottom: solid 1px #e9e9e9; }
+  div.messages-toolbar a {
+    text-decoration: none; }
 
 a.message {
   display: block;
   text-decoration: none;
   margin: 1px 0 0 0;
   padding: 6px 10px 6px 5px;
-  border-left: solid 8px #005ea5; }
+  border-left: solid 8px #0d7abf; }
   a.message div.date {
     float: right;
     color: #808080;
@@ -335,10 +337,12 @@ div.message-list-preview div.tags {
 div.message-viewer {
   margin: 0 0 30px 0; }
   div.message-viewer div.section-header {
-    margin: 0 0 10px 0;
+    margin: 40px 0 10px 0;
     padding: 0 0 10px 0;
     font-size: 12pt;
     border-bottom: solid 1px #e3e3e3; }
+    div.message-viewer div.section-header.first {
+      margin-top: 0; }
   div.message-viewer #msg-header {
     background-color: #f5f5f5;
     padding: 30px 30px 15px 30px;
@@ -353,8 +357,8 @@ div.message-viewer {
   div.message-viewer #msg-date {
     margin: 0;
     padding: 0;
-    font-size: 10pt;
-    color: #666; }
+    color: #333;
+    font-weight: 300; }
   div.message-viewer #msg-body {
     background-color: #f5f5f5;
     margin: 0;
