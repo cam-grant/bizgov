@@ -8,12 +8,13 @@
 		{{#attachments}}
 		<div class="msg-attachment">
 			<div class="pull-right">
-				<a href="#" class="download"><img src="<!-- @path assets/images/download.png -->" /></a>
+				<a href="#" class="download" style="margin-right: 5px;"><img src="<!-- @path assets/images/copy-to-cloud.png -->" /></a>
+				<a href="#" class="download" style="position: relative; top: -1px;"><img src="<!-- @path assets/images/download.png -->" /></a>
 			</div>
-			<a href="#">{{ . }}</a>
+			<a href="#" class="attachment">{{ . }}</a>
 		</div>
 		{{/attachments}}
-		{{^attachments}}No attachments for this message.{{/attachments}}
+		{{^attachments}}<span class="no-attachments">No attachments for this message.</span>{{/attachments}}
 	</script>
 	<script id="tag-template" type="text/x-handlebars-template">
 		{{#tags}}
@@ -59,12 +60,17 @@
 					<!-- @include _sidebar -->
 				</div>
 				<div class="col-sm-9">
+					<div class="messages-toolbar" style="border: none;">
+						<a href="<!-- @path messages.html -->"><span class="glyphicon glyphicon-chevron-left" style="padding-right: 5px;"></span>Back</a>
+					</div>
 					<div class="message-viewer">
 						<div class="row">
 							<div class="col-sm-8">
-								<div id="msg-from" class="section-header"></div>
-								<h2 id="msg-subject"></h2>
-								<div id="msg-date"></div>
+								<div id="msg-header">
+									<div id="msg-from"></div>
+									<div id="msg-subject"></div>
+									<div id="msg-date"></div>
+								</div>
 								<div id="msg-body">
 									<p>Dear Jane,</p>
 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel bibendum nibh.</p>

@@ -110,35 +110,49 @@ div.message-list-preview
 
 div.message-viewer
 {
+	margin: 0 0 30px 0;
+
+
 	div.section-header
 	{
 		margin: 0 0 10px 0;
 		padding: 0 0 10px 0;
-		border-bottom: $thin-border;
 		font-size: 12pt;
-		font-weight: normal;
-		line-height: 1em;
+		border-bottom: solid 1px #e3e3e3;
+	}
+
+	#msg-header
+	{
+		background-color: #f5f5f5;
+		padding: 30px 30px 15px 30px;
+		margin: 0 0 0 0;
+	}
+
+	#msg-from
+	{
+		font-weight: 300;
 	}
 
 	#msg-subject
 	{
-		margin: 0 0 10px 0;
-		padding: 0;
-		border: none;
-
+		margin: 5px 0 10px 0;
+		padding: 0 0 10px 0;
+		border-bottom: 1px solid #ddd;
+		font-size: 16pt;
 	}
 
 	#msg-date
 	{
 		margin: 0;
 		padding: 0;
-		color: #808080;
+		font-size: 10pt;
+		color: #666;
 	}
 
 	#msg-body
 	{
 		background-color: #f5f5f5;
-		margin: 30px 0;
+		margin: 0;
 		padding: 30px;
 
 		p
@@ -160,7 +174,7 @@ div.message-viewer
 		padding: 10px 15px 10px 0px;
 		margin: 0;
 
-		a
+		a.attachment
 		{
 			padding: 0 0 0 25px;
 			background-repeat: no-repeat;
@@ -168,16 +182,15 @@ div.message-viewer
 			background-image: url(../images/attachment.png);
 		}
 
-		a.download
-		{
-			background: none;
-			padding: 0;
-		}
-
 		&:hover
 		{
 			background-color: #f5f5f5;
 		}
+	}
+
+	span.no-attachments
+	{
+		color: #aaa;
 	}
 
 	#msg-tags
