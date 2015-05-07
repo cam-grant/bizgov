@@ -167,6 +167,12 @@ h2 {
   padding: 5px 0 12px 0;
   border-bottom: solid 5px #e9f3fc; }
 
+h3 {
+  font-size: 13pt;
+  font-weight: 600;
+  color: #333;
+  margin: 15px 0; }
+
 div.sub-head {
   margin: 5px 0 45px 0;
   color: #666;
