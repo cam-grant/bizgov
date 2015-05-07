@@ -1,0 +1,27 @@
+div.address
+{
+	margin: 0 0 15px 0;
+}
+
+div.ph
+{
+	margin: 0;
+	padding: 10px 0;
+
+	a
+	{
+		float: right;
+	}
+
+	span
+	{
+		display: inline-block;
+		color: #808080;
+		margin: 0 10px 0 0;
+	}
+}
+
+div.ph+div.ph
+{
+	border-top: $thin-border;
+}

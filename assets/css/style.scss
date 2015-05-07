@@ -306,6 +306,14 @@ h2
 	margin: 0 0 15px 0;
 	padding: 5px 0 12px 0;
 	border-bottom: $thick-border;
+
+	a
+	{
+		display: inline-block;
+		margin: 5px 0 0 0;
+		float: right;
+		text-decoration: none;
+	}
 }
 
 h3
@@ -475,7 +483,9 @@ a.card
 }
 
 @import 'messages';
+@import 'addresses';
 @import 'filter_box';
+
 
 div.alpha
 {
