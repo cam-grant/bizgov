@@ -486,6 +486,9 @@ a.btn {
     color: #111;
     background-color: #f5f5f5; }
 
+a.back {
+  text-decoration: none; }
+
 ul.permissions-list li {
   list-style-image: url(../images/check.png); }
 ul.permissions-list.editable {
