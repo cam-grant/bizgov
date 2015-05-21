@@ -461,6 +461,50 @@ a.card
 @import 'addresses';
 @import 'filter_box';
 
+label{
+	font-weight: normal;
+}
+
+a.btn
+{
+	color: #fff;
+	text-decoration: none;
+	
+	&.btn-default
+	{
+		color: #111;
+	}
+}
+
+table.table
+{
+	th, td
+	{
+		padding: 10px 20px 10px 0 !important;
+		
+		&.spring
+		{
+			width: 100%;
+		}
+		
+		&.nowrap
+		{
+			white-space: nowrap;
+		}
+	}
+	
+	th{
+		border-bottom: none !important;
+	}
+	
+	td
+	{
+		border-bottom: $thin-border;
+	}
+}
+
+
+
 
 div.alpha
 {
