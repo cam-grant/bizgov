@@ -582,3 +582,26 @@ span.or-cancel
 		color: #990000;
 	}
 }
+
+input.filter
+{
+	border: solid 1px #ddd;
+	padding: 8px 12px;
+	
+	&:focus
+	{
+		outline: none;
+	}
+}
+
+select.filter
+{
+	border: solid 1px #ddd;
+	border-top: 0;
+	padding: 8px 12px;
+	
+	&:focus
+	{
+		outline: none;
+	}
+}
