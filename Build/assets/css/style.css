@@ -529,3 +529,10 @@ ul.alpha-list {
   padding: 0; }
   ul.alpha-list li {
     margin: 5px 0 0 0; }
+
+ul.nav-tabs a {
+  text-decoration: none; }
+
+span.or-cancel a {
+  text-decoration: none;
+  color: #990000; }

@@ -18,18 +18,41 @@
 					<a href="<!-- @path ./representatives.html -->" class="back"><span class="glyphicon glyphicon-chevron-left" style="padding-right: 5px;"></span>Representatives</a>
 					<h1 class="no-margin">Add representative</h1>
 
-					<!--						
-					<form>
-						
-					  <div class="form-group">
-					    <label>Representative's email address</label>
-					    <input type="email" class="form-control" placeholder="E.g. name@domain.com">
-						<span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
-					  </div>
-					</form>
+					<div role="tabpanel">
 					
-					<a href="<!-- @path ./representatives.html -->">Cancel</a>
-					-->
+					  <ul class="nav nav-tabs" role="tablist" style="margin: 40px 0 30px 0;">
+					    <li role="presentation" class="active"><a href="#individual" role="tab" data-toggle="tab">Individual</a></li>
+					    <li role="presentation"><a href="#business" role="tab" data-toggle="tab">Business</a></li>
+					  </ul>
+					  <div class="tab-content">
+					    <div role="tabpanel" class="tab-pane active" id="individual">
+							<p>[Individual email address for invitation code]</p>
+							<p>[Agency / Service Authorisations]</p>
+							<!--
+							<form>				
+							  <div class="form-group" style="width: 500px">
+							    <label>Email address</label>
+							    <input type="email" class="form-control" placeholder="name@example.com.au">
+								<span class="help-block">We'll send an invitation code to this email address.</span>
+							  </div>
+							</form>
+							-->
+						</div>
+					    <div role="tabpanel" class="tab-pane" id="business">
+							<p>[Business ABN lookup]</p>
+							<p>[Agency / Service Authorisations]</p>
+						</div>
+					  </div>
+					
+					</div>
+
+					<div style="margin-top: 60px;">
+						<a href="<!-- @path ./representatives.html -->" class="btn btn-primary">Send invitation</a> 
+						<span class="or-cancel">
+							<span>or</span>
+							<a href="<!-- @path ./representatives.html -->">Cancel</a>
+						</span>
+					</div>
 				</div>
 			</div>
 		</div>
