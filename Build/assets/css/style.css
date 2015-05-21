@@ -475,6 +475,10 @@ div.filter-box {
     div.filter-box button:hover {
       background-color: #0d7abf; }
 
+.light-text {
+  color: #666;
+  font-weight: 300; }
+
 label {
   font-weight: normal; }
 
