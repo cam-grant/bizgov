@@ -491,7 +491,9 @@ a.btn {
     background-color: #f5f5f5; }
 
 a.back {
-  text-decoration: none; }
+  display: inline-block;
+  text-decoration: none;
+  margin: 0 0 5px 0; }
 
 ul.permissions-list li {
   list-style-image: url(../images/check.png); }
