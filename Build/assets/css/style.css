@@ -484,10 +484,14 @@ a.btn {
   a.btn.btn-default {
     color: #111; }
 
+ul.permissions-list li {
+  list-style-image: url(../images/check.png); }
 ul.permissions-list.editable {
   list-style: none;
   margin: 0;
   padding: 0; }
+  ul.permissions-list.editable li {
+    list-style-image: none; }
 
 table.table th, table.table td {
   padding: 10px 20px 10px 0 !important; }
