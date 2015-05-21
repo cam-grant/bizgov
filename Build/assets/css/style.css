@@ -489,13 +489,6 @@ ul.permissions-list.editable {
   margin: 0;
   padding: 0; }
 
-span.or-cancel span {
-  margin: 0 0 0 4px;
-  color: #666; }
-span.or-cancel a {
-  color: #990000;
-  text-decoration: none; }
-
 table.table th, table.table td {
   padding: 10px 20px 10px 0 !important; }
   table.table th.spring, table.table td.spring {
