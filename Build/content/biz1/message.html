@@ -2,8 +2,34 @@
 <head>
 	<meta name="format-detection" content="telephone=no">
 
-<link rel='stylesheet' href='../../09112850fd0a5f9f46ed34beb20337e1.css'>
-<script src='../../5a09f2cb6ce01d7ffad1b30e3490ff4d.js'></script>
+        <!-- Hammer reload -->
+          <script>
+            setInterval(function(){
+              try {
+                if(typeof ws != 'undefined' && ws.readyState == 1){return true;}
+                ws = new WebSocket('ws://'+(location.host || 'localhost').split(':')[0]+':35353')
+                ws.onopen = function(){ws.onclose = function(){document.location.reload()}}
+                ws.onmessage = function(){
+                  var links = document.getElementsByTagName('link'); 
+                    for (var i = 0; i < links.length;i++) { 
+                    var link = links[i]; 
+                    if (link.rel === 'stylesheet' && !link.href.match(/typekit/)) { 
+                      href = link.href.replace(/((&|\?)hammer=)[^&]+/,''); 
+                      link.href = href + (href.indexOf('?')>=0?'&':'?') + 'hammer='+(new Date().valueOf());
+                    }
+                  }
+                }
+              }catch(e){}
+            }, 1000)
+          </script>
+        <!-- /Hammer reload -->
+      
+<link rel='stylesheet' href='../../assets/css/bootstrap.min.css'>
+<link rel='stylesheet' href='../../assets/css/style.css'>
+<script src='../../assets/js/jquery-1.11.2.min.js'></script>
+<script src='../../assets/js/bootstrap.min.js'></script>
+<script src='../../assets/js/handlebars-3.0.3.js'></script>
+<script src='../../assets/js/app.js'></script>
 <title>Message</title>
 	<script id="message-template" type="text/x-handlebars-template">
 	{{#each .}}
