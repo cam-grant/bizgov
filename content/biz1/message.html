@@ -52,9 +52,11 @@
 		$("#msg-attachments").html(template(msg));
 
 		// Tags
+		/*
 		source = $("#tag-template").html();
 		template = Handlebars.compile(source);
 		$("#msg-tags").html(template(msg));
+		*/
 
 		// More from sender
 		/*
@@ -79,7 +81,7 @@
 				</div>
 				<div class="col-sm-9">
 					<div class="messages-toolbar" style="border: none;">
-						<a href="<!-- @path messages.html -->"><span class="glyphicon glyphicon-chevron-left" style="padding-right: 5px;"></span>Messages</a>
+						<a href="<!-- @path messages.html -->"><span class="glyphicon glyphicon-chevron-left" style="padding-right: 5px;"></span>Inbox</a>
 					</div>
 					<div class="message-viewer">
 						<div class="row">
@@ -103,9 +105,12 @@
 								<div class="section-header first">Attachments</div>
 								<div id="msg-attachments"></div>
 
+								<!--
 								<div class="section-header">Categories</div>
 								<div id="msg-tags"></div>
 								<input id="add-tag" type="text" placeholder="Add category" />
+								-->
+								
 								<!-- 
 								<div id="msg-more-from" class="section-header"></div>
 								<div id="msg-more-messages"></div>

@@ -9,7 +9,7 @@
 <body>
 	<div id="account-bar">
 	<div class="container-fluid">
-		<a id="logo" href="../../index.html">business.gov.au</a>
+		<a class='current-parent' id="logo" href="index.html">business.gov.au</a>
 		<div id="user" class="pull-right">
 			<input type="text"></input>
 			<a href="#">Jane Citizen</a>
@@ -55,7 +55,7 @@
 
     <nav>
       <ul>
-        <li><a href="../../index.html" class="home">&nbsp;<span>&nbsp;</span></a></li>
+        <!--<li><a href="<-- @path index.html ->" class="home">&nbsp;<span>&nbsp;</span></a></li></a>-->
         <li class='current-parent'><a class='current-parent' href="index.html">Jane's Bakery<span>ABN 66 123 456 789</span></a></li>
         <!-- <li><a href="">Jane's Catering Services<span>ABN 66 987 654 321</span></a></li> -->
         <li><a href="#" class="add" data-toggle="modal" data-target="#add-biz-dialog"></a></li>
@@ -72,11 +72,11 @@
 				<div class="col-sm-3">
 					<ul id="sub-nav">
 	<li class='current-parent'><a class='current-parent' href="index.html">Home</a></li>
-	<li><a href="messages.html">Messages<span>3</span></a></li>
+	<li><a href="messages.html">Inbox<span>3</span></a></li>
 	<li class='current'><a class='current' href="services.html">Services</a></li>
-	<li><a href="representatives.html">Representatives<span>2</span></a></li>
+	<li><a href="representatives.html">Authorise<span>2</span></a></li>
 	<li><a href="details.html">Business details</a></li>
-	<li><a href="settings.html">Notification settings</a></li>
+	<li><a href="settings.html">Notifications and alerts</a></li>
 	<li class="sep"></li>
 	<li class="icon-cloud"><a href="vault.html">Vault</a></li>
 </ul>
@@ -90,25 +90,25 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-sm-8">
+						<div class="col-sm-6">
 							<h2>Frequently used services</h2>
 							<ul class="link-list">
-	<li><a href="http://www.ato.gov.au/">Submit your BAS</a></li>
-	<li><a href="#">Renew ACT car registration</a></li>
-	<li><a href="#">Income tax calculator</a></li>
+	<li><a href="#">Lodge my BAS</a></li>
+	<li><a href="#">Update my details</a></li>
+	<li><a href="#">Renew my business name</a></li>
+	<li><a href="#">Lodge my (business) tax return</a></li>
+	<li><a href="#">Manage my workcover and insurance</a></li>
+	<li><a href="#">Start a new employee/contractor</a></li>
+	<li><a href="#">Apply for a grant</a></li>
+	<li><a href="#">Apply for a license or permit</a></li>
+	<li><a href="#">Manage my employee's super</a></li>
 </ul>
-
-							<p>&nbsp;</p>
-
+							<div class="section-box">
+								More <a class='current' href="services.html">services</a>
+							</div>
+							
+							<!--
 							<h2>More services</h2>
-							<div class="filter-box">
-	<table>
-    	<tr>
-      		<th><input type="text" placeholder="Search" /></th>
-      		<td><button type="button" class="bt"><span class="glyphicon glyphicon-search"></span></button></td>
-    	</tr>
-	</table>
-</div>
 
 							<div class="row">
 								<div class="col-sm-6">
@@ -162,19 +162,24 @@
 									<div class="section-box">More on <a href="#">grants and assistance</a></div>
 								</div>
 							</div>
+							-->
 
 						</div>
-						<div class="col-sm-4">
-							<h2>Agencies A-Z</h2>
-							<div class="filter-box">
-	<table>
-    	<tr>
-      		<th><input type="text" placeholder="Search" /></th>
-      		<td><button type="button" class="bt"><span class="glyphicon glyphicon-search"></span></button></td>
-    	</tr>
-	</table>
-</div>
-
+						<div class="col-sm-6">
+							<h2>Agencies</h2>
+							<!-- include _filter_box -->
+							
+							<ul class="alpha-list">
+								<li><a href="#">ATO</a></li>
+								<li><a href="#">ASIC</a></li>
+								<li><a href="#">Local council</a></li>
+								<li><a href="#">Department of Health</a></li>
+							</ul>
+							<div class="section-box">
+								More <a href="#">Agencies</a>
+							</div>
+							
+							<!--
 							<div class="alpha" style="margin-top: 15px;">A</div>
 							<ul class="alpha-list">
 								<li><a href="#">Australian Bureau of Statistics</a></li>
@@ -218,6 +223,7 @@
 								<li><a href="#">Agency</a></li>
 								<li><a href="#">More...</a></li>
 							</ul>
+							-->
 						</div>
 				</div>
 			</div>

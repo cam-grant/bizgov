@@ -12,11 +12,13 @@
 		<div class="date">{{ date }}</div>
 		<div class="from">{{ from }}</div>
 		<div class="subject">{{ subject }}</div>
+		<!--
 		<div class="tag-list">
 			{{#tags}}
 			<span>{{ . }}</span>
 			{{/tags}}
 		</div>
+		-->
 	</a>
 	{{/each}}
 </script>
@@ -102,7 +104,7 @@ var messages = [
 <body>
 	<div id="account-bar">
 	<div class="container-fluid">
-		<a id="logo" href="../../index.html">business.gov.au</a>
+		<a class='current-parent current' id="logo" href="index.html">business.gov.au</a>
 		<div id="user" class="pull-right">
 			<input type="text"></input>
 			<a href="#">Jane Citizen</a>
@@ -148,7 +150,7 @@ var messages = [
 
     <nav>
       <ul>
-        <li><a href="../../index.html" class="home">&nbsp;<span>&nbsp;</span></a></li>
+        <!--<li><a href="<-- @path index.html ->" class="home">&nbsp;<span>&nbsp;</span></a></li></a>-->
         <li class='current-parent current'><a class='current-parent current' href="index.html">Jane's Bakery<span>ABN 66 123 456 789</span></a></li>
         <!-- <li><a href="">Jane's Catering Services<span>ABN 66 987 654 321</span></a></li> -->
         <li><a href="#" class="add" data-toggle="modal" data-target="#add-biz-dialog"></a></li>
@@ -165,11 +167,11 @@ var messages = [
 				<div class="col-sm-3">
 					<ul id="sub-nav">
 	<li class='current-parent current'><a class='current-parent current' href="index.html">Home</a></li>
-	<li><a href="messages.html">Messages<span>3</span></a></li>
+	<li><a href="messages.html">Inbox<span>3</span></a></li>
 	<li><a href="services.html">Services</a></li>
-	<li><a href="representatives.html">Representatives<span>2</span></a></li>
+	<li><a href="representatives.html">Authorise<span>2</span></a></li>
 	<li><a href="details.html">Business details</a></li>
-	<li><a href="settings.html">Notification settings</a></li>
+	<li><a href="settings.html">Notifications and alerts</a></li>
 	<li class="sep"></li>
 	<li class="icon-cloud"><a href="vault.html">Vault</a></li>
 </ul>
@@ -192,9 +194,15 @@ var messages = [
 						<div class="col-sm-6">
 							<h2>Frequently used services</h2>
 							<ul class="link-list">
-	<li><a href="http://www.ato.gov.au/">Submit your BAS</a></li>
-	<li><a href="#">Renew ACT car registration</a></li>
-	<li><a href="#">Income tax calculator</a></li>
+	<li><a href="#">Lodge my BAS</a></li>
+	<li><a href="#">Update my details</a></li>
+	<li><a href="#">Renew my business name</a></li>
+	<li><a href="#">Lodge my (business) tax return</a></li>
+	<li><a href="#">Manage my workcover and insurance</a></li>
+	<li><a href="#">Start a new employee/contractor</a></li>
+	<li><a href="#">Apply for a grant</a></li>
+	<li><a href="#">Apply for a license or permit</a></li>
+	<li><a href="#">Manage my employee's super</a></li>
 </ul>
 							<div class="section-box">
 								More <a href="services.html">services</a>
@@ -204,7 +212,7 @@ var messages = [
 							<h2>Recent messages</h2>							
 							<div id="messages"></div>
 							<div class="section-box">
-								Go to <a href="messages.html">messages</a>
+								Go to <a href="messages.html">inbox</a>
 							</div>
 						</div>
 					</div>
