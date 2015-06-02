@@ -1,0 +1,39 @@
+<div class="messages-toolbar">
+	<div class="btn-group" data-toggle="buttons">
+	  <label class="btn btn-default active" style="width: 70px;" onclick="updateMessages(false)">
+	    <input type="radio" name="options" autocomplete="off" checked>All
+	  </label>
+	  <label class="btn btn-default" onclick="updateMessages(true)">
+	    <input type="radio" name="options" autocomplete="off">Unread
+	  </label>
+	</div>
+	
+	<div class="dropdown" style="display: inline-block;">
+		<a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+			From anyone <span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="#">Australian Securities and Investments Commision</a></li>
+			<li><a href="#">Australian Taxation Office</a></li>
+		</ul>
+	</div>
+	<div class="dropdown" style="display: inline-block;">
+		<a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+			Anytime <span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="#">Anytime</a></li>
+			<li role="presentation" class="divider"></li>
+			<li><a href="#">Today</a></li>
+			<li><a href="#">Yesterday</a></li>
+			<li><a href="#">This week</a></li>
+			<li><a href="#">Last week</a></li>
+			<li><a href="#">This month</a></li>
+			<li><a href="#">This year</a></li>
+		</ul>
+	</div>
+
+	<div style="float: right; width: 200px; margin-left: 5px;">
+		<input type="text" class="form-control" placeholder="Search">
+	</div>
+</div>

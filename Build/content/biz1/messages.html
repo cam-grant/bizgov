@@ -2,9 +2,9 @@
 <head>
 	<meta name="format-detection" content="telephone=no">
 
-<link rel='stylesheet' href='../../09112850fd0a5f9f46ed34beb20337e1.css'>
+<link rel='stylesheet' href='../../e0bd7b8311cae5781f966426e3b0ee63.css'>
 <script src='../../5a09f2cb6ce01d7ffad1b30e3490ff4d.js'></script>
-<title>Messages</title>	
+<title>Inbox</title>	
 	<script id="message-template" type="text/x-handlebars-template">
 	{{#each .}}
 	<a href="message.html?i={{@index}}" class="message {{#read}}read{{/read}}">
@@ -68,13 +68,20 @@ var messages = [
 	}
 ];
 
-	function renderMessages(target, maxCount, unreadOnly, preview) {
+	function renderMessages(target, maxCount, unreadOnly, preview, from) {
 
 		var target = $(target);
 		if (preview)
 			target.addClass('message-list-preview');
 
 		var display_messages = messages;
+
+		if (from)
+		{
+			display_messages = $.grep(messages, function(m) {
+				return m.from == from;
+			});
+		}
 
 		if (unreadOnly)
 		{
@@ -173,59 +180,60 @@ var messages = [
 					<ul id="sub-nav">
 	<li class='current-parent'><a class='current-parent' href="index.html">Home</a></li>
 	<li class='current'><a class='current' href="messages.html">Inbox<span>3</span></a></li>
+			<li class="folder"><a href="folder1.html">Tax<span>2</span></a></li>
+			<li class="folder"><a href="folder2.html">Registrations<span>1</span></a></li>
+			<li class="folder"><a href="folder3.html">Super</a></li>
 	<li><a href="services.html">Services</a></li>
-	<li><a href="representatives.html">Authorise<span>2</span></a></li>
+	<li><a href="iwantto.html">I want to...</a></li>
+	<li><a href="representatives.html">Authorise<span>3</span></a></li>
 	<li><a href="details.html">Business details</a></li>
 	<li><a href="settings.html">Notifications and alerts</a></li>
 	<li class="sep"></li>
 	<li class="icon-cloud"><a href="vault.html">Vault</a></li>
 </ul>
-
 				</div>
 				<div class="col-sm-9">
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="messages-toolbar">
-								<div class="btn-group" data-toggle="buttons">
-								  <label class="btn btn-default active" style="width: 70px;" onclick="updateMessages(false)">
-								    <input type="radio" name="options" autocomplete="off" checked>All
-								  </label>
-								  <label class="btn btn-default" onclick="updateMessages(true)">
-								    <input type="radio" name="options" autocomplete="off">Unread
-								  </label>
-								</div>
-								
-								<div class="dropdown" style="display: inline-block;">
-									<a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-										From anyone <span class="caret"></span>
-									</a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="#">Australian Securities and Investments Commision</a></li>
-										<li><a href="#">Australian Taxation Office</a></li>
-									</ul>
-								</div>
-								<div class="dropdown" style="display: inline-block;">
-									<a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-										Anytime <span class="caret"></span>
-									</a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="#">Anytime</a></li>
-										<li role="presentation" class="divider"></li>
-										<li><a href="#">Today</a></li>
-										<li><a href="#">Yesterday</a></li>
-										<li><a href="#">This week</a></li>
-										<li><a href="#">Last week</a></li>
-										<li><a href="#">This month</a></li>
-										<li><a href="#">This year</a></li>
-									</ul>
-								</div>
+	<div class="btn-group" data-toggle="buttons">
+	  <label class="btn btn-default active" style="width: 70px;" onclick="updateMessages(false)">
+	    <input type="radio" name="options" autocomplete="off" checked>All
+	  </label>
+	  <label class="btn btn-default" onclick="updateMessages(true)">
+	    <input type="radio" name="options" autocomplete="off">Unread
+	  </label>
+	</div>
+	
+	<div class="dropdown" style="display: inline-block;">
+		<a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+			From anyone <span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="#">Australian Securities and Investments Commision</a></li>
+			<li><a href="#">Australian Taxation Office</a></li>
+		</ul>
+	</div>
+	<div class="dropdown" style="display: inline-block;">
+		<a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+			Anytime <span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="#">Anytime</a></li>
+			<li role="presentation" class="divider"></li>
+			<li><a href="#">Today</a></li>
+			<li><a href="#">Yesterday</a></li>
+			<li><a href="#">This week</a></li>
+			<li><a href="#">Last week</a></li>
+			<li><a href="#">This month</a></li>
+			<li><a href="#">This year</a></li>
+		</ul>
+	</div>
 
-								<div style="float: right; width: 200px; margin-left: 5px;">
-									<input type="text" class="form-control" placeholder="Search">
-								</div>
-
-							</div>
-
+	<div style="float: right; width: 200px; margin-left: 5px;">
+		<input type="text" class="form-control" placeholder="Search">
+	</div>
+</div>
 							<div id="messages"></div>
 						</div>
 					</div>

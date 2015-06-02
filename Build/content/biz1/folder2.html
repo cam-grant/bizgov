@@ -4,7 +4,7 @@
 
 <link rel='stylesheet' href='../../e0bd7b8311cae5781f966426e3b0ee63.css'>
 <script src='../../5a09f2cb6ce01d7ffad1b30e3490ff4d.js'></script>
-<title>Home</title>
+<title>Inbox</title>	
 	<script id="message-template" type="text/x-handlebars-template">
 	{{#each .}}
 	<a href="message.html?i={{@index}}" class="message {{#read}}read{{/read}}">
@@ -103,15 +103,20 @@ var messages = [
 	<script>
 
 	$(document).ready(function() {
-	  renderMessages("#messages", 3, false, true);
+		updateMessages(false);	  
 	});
+
+	function updateMessages(unreadyOnly)
+	{
+		renderMessages("#messages", 10, unreadyOnly, false, 'Australian Securities and Investments Commision');	
+	}
 
 	</script>
 </head>
 <body>
 	<div id="account-bar">
 	<div class="container-fluid">
-		<a class='current-parent current' id="logo" href="index.html">business.gov.au</a>
+		<a class='current-parent' id="logo" href="index.html">business.gov.au</a>
 		<div id="user" class="pull-right">
 			<input type="text"></input>
 			<a href="#">Jane Citizen</a>
@@ -158,7 +163,7 @@ var messages = [
     <nav>
       <ul>
         <!--<li><a href="<-- @path index.html ->" class="home">&nbsp;<span>&nbsp;</span></a></li></a>-->
-        <li class='current-parent current'><a class='current-parent current' href="index.html">Jane's Bakery<span>ABN 66 123 456 789</span></a></li>
+        <li class='current-parent'><a class='current-parent' href="index.html">Jane's Bakery<span>ABN 66 123 456 789</span></a></li>
         <!-- <li><a href="">Jane's Catering Services<span>ABN 66 987 654 321</span></a></li> -->
         <li><a href="#" class="add" data-toggle="modal" data-target="#add-biz-dialog"></a></li>
       </ul>
@@ -173,8 +178,11 @@ var messages = [
 			<div class="row">
 				<div class="col-sm-3">
 					<ul id="sub-nav">
-	<li class='current-parent current'><a class='current-parent current' href="index.html">Home</a></li>
+	<li class='current-parent'><a class='current-parent' href="index.html">Home</a></li>
 	<li><a href="messages.html">Inbox<span>3</span></a></li>
+			<li class="folder"><a href="folder1.html">Tax<span>2</span></a></li>
+			<li class="current folder"><a class='current' href="folder2.html">Registrations<span>1</span></a></li>
+			<li class="folder"><a href="folder3.html">Super</a></li>
 	<li><a href="services.html">Services</a></li>
 	<li><a href="iwantto.html">I want to...</a></li>
 	<li><a href="representatives.html">Authorise<span>3</span></a></li>
@@ -187,81 +195,46 @@ var messages = [
 				<div class="col-sm-9">
 					<div class="row">
 						<div class="col-sm-12">
-							<h1 class="no-margin">Jane's Bakery</h1>
-							<div class="sub-head">
-								ABN 66 123 456 789 <span>&ndash;</span>
-								Individual / Sole trader <span>&ndash;</span>
-								Active from 1 Jan 2008 <span>&ndash;</span>
-								<a href="#">Registration details</a>
-							</div>
-							
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-6">
-							<h2>Frequently used services</h2>
-							<ul class="link-list">
-	<li><a href="#">Lodge my BAS</a></li>
-	<li><a href="#">Update my details</a></li>
-	<li><a href="#">Renew my business name</a></li>
-	<li><a href="#">Lodge my (business) tax return</a></li>
-	<li><a href="#">Manage my workcover and insurance</a></li>
-	<li><a href="#">Start a new employee/contractor</a></li>
-	<li><a href="#">Apply for a grant</a></li>
-	<li><a href="#">Apply for a license or permit</a></li>
-	<li><a href="#">Manage my employee's super</a></li>
-</ul>
-							<div class="section-box">
-								More <a href="services.html">services</a>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<h2>Recent messages</h2>							
+							<div class="messages-toolbar">
+	<div class="btn-group" data-toggle="buttons">
+	  <label class="btn btn-default active" style="width: 70px;" onclick="updateMessages(false)">
+	    <input type="radio" name="options" autocomplete="off" checked>All
+	  </label>
+	  <label class="btn btn-default" onclick="updateMessages(true)">
+	    <input type="radio" name="options" autocomplete="off">Unread
+	  </label>
+	</div>
+	
+	<div class="dropdown" style="display: inline-block;">
+		<a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+			From anyone <span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="#">Australian Securities and Investments Commision</a></li>
+			<li><a href="#">Australian Taxation Office</a></li>
+		</ul>
+	</div>
+	<div class="dropdown" style="display: inline-block;">
+		<a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+			Anytime <span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="#">Anytime</a></li>
+			<li role="presentation" class="divider"></li>
+			<li><a href="#">Today</a></li>
+			<li><a href="#">Yesterday</a></li>
+			<li><a href="#">This week</a></li>
+			<li><a href="#">Last week</a></li>
+			<li><a href="#">This month</a></li>
+			<li><a href="#">This year</a></li>
+		</ul>
+	</div>
+
+	<div style="float: right; width: 200px; margin-left: 5px;">
+		<input type="text" class="form-control" placeholder="Search">
+	</div>
+</div>
 							<div id="messages"></div>
-							<div class="section-box">
-								Go to <a href="messages.html">inbox</a>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<h2>News</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="news-story">
-	<a href="#">The future of Australia’s tax system</a>
-	<p>The tax discussion paper has been released. Let’s start a national conversation about tax reform. Your feedback could help improve Australia’s tax system.</p>
-</div>
-
-<div class="news-story">
-	<a href="#">Standards can help your business</a>
-	<p>Standards are specifications that describe ways of doing business that help make your products and services safe, reliable and fit for purpose.</p>
-</div>
-
-<div class="news-story">
-	<a href="#">Starting a business as a young person</a>
-	<p>Younger entrepreneurs can start a business as a minor with some proper planning and information!</p>
-</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="news-story">
-								<a href="#">Protect your business from cybercrime</a>
-								<p>The Australian Cybercrime Online Reporting Network (ACORN) is an Australia-wide initiative that allows the public to securely report cybercrime.</p>
-							</div>
-							<div class="news-story">
-								<a href="#">Get the latest news on international markets</a>
-								<p>Business Envoy is a new online publication from the Department of Foreign Affairs and Trade (DFAT) that brings you the latest news on key trade and investment markets.</p>
-							</div>
-
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12 col-md-12">
-							<div class="section-footer">
-								More <a href="#">news stories</a>
-							</div>
 						</div>
 					</div>
 				</div>

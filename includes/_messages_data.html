@@ -61,13 +61,20 @@ var messages = [
 	}
 ];
 
-	function renderMessages(target, maxCount, unreadOnly, preview) {
+	function renderMessages(target, maxCount, unreadOnly, preview, from) {
 
 		var target = $(target);
 		if (preview)
 			target.addClass('message-list-preview');
 
 		var display_messages = messages;
+
+		if (from)
+		{
+			display_messages = $.grep(messages, function(m) {
+				return m.from == from;
+			});
+		}
 
 		if (unreadOnly)
 		{

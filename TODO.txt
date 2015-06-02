@@ -1,7 +1,7 @@
 + Rename Messages to Inbox
 + Remove message tags
-- Add message folders
-- Add "I want to..." page to sidebar
++ Add message folders
++ Add "I want to..." page to sidebar
 + Change list of services under "Frequently used" to
   - Lodge my BAS
   - Update my details
@@ -19,6 +19,6 @@
   - Department of Health
   - (More... link)
 + Remove "More services" (business.gov.au) content from Service page
-+ Remove home page tab if only one business is linked
++ Remove home page tab if only one ABN linked to business account
 + Rename "Representatives" to "Authorise"
 + Rename "Notifications" to "Notifications and alerts"
