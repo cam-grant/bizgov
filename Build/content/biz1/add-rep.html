@@ -1,0 +1,159 @@
+<html>
+<head>
+	<meta name="format-detection" content="telephone=no">
+
+<link rel='stylesheet' href='../../e0bd7b8311cae5781f966426e3b0ee63.css'>
+<script src='../../5a09f2cb6ce01d7ffad1b30e3490ff4d.js'></script>
+<title>Add authorised representative</title>	
+</head>
+<body>
+	<div id="account-bar">
+	<div class="container-fluid">
+		<a class='current-parent' id="logo" href="index.html">business.gov.au</a>
+		<div id="user" class="pull-right">
+			<input type="text"></input>
+			<a href="#">Jane Citizen</a>
+		</div>
+	</div>
+</div>
+	<div id="add-biz-dialog" class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add business or notebook</h4>
+      </div>
+      <div class="modal-body">
+        <p>From here users can:</p>
+        <ul style="margin-left: 30px;">
+          <li>Add a tab for a previously linked ABN</li>
+          <li>Link a new ABN and display the tab</li>
+          <li>Add a tab for an existing notebook</li>
+          <li>Create a new notebook and display the tab</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">&nbsp;&nbsp;OK&nbsp;&nbsp;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="container-fluid">
+    
+    <div id="search">
+      <div>Find government services and information</div>
+      <table>
+        <tr>
+          <td><input id="search" type="text" placeholder="Search" /></td>
+          <td><button id="search-button" type="button" class="bt"><span class="glyphicon glyphicon-search"></span></button></td>
+        </tr>
+      </table>
+    </div>
+
+    <nav>
+      <ul>
+        <!--<li><a href="<-- @path index.html ->" class="home">&nbsp;<span>&nbsp;</span></a></li></a>-->
+        <li class='current-parent'><a class='current-parent' href="index.html">Jane's Bakery<span>ABN 66 123 456 789</span></a></li>
+        <!-- <li><a href="">Jane's Catering Services<span>ABN 66 987 654 321</span></a></li> -->
+        <li><a href="#" class="add" data-toggle="modal" data-target="#add-biz-dialog"></a></li>
+      </ul>
+      <div class="clearfix"></div>
+    </nav>
+  </div>
+
+</header>
+
+	<section id="main">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3">
+					<ul id="sub-nav">
+	<li class='current-parent'><a class='current-parent' href="index.html">Home</a></li>
+	<li><a href="messages.html">Inbox<span>3</span></a></li>
+	<li><a href="services.html">Services</a></li>
+	<li><a href="iwantto.html">I want to...</a></li>
+	<li><a href="representatives.html">Authorise<span>3</span></a></li>
+	<li><a href="details.html">Business details</a></li>
+	<li><a href="settings.html">Notifications and alerts</a></li>
+	<li class="sep"></li>
+	<li class="icon-cloud"><a href="vault.html">Vault</a></li>
+</ul>
+				</div>
+				<div class="col-sm-9">
+					<a href="representatives.html" class="back"><span class="glyphicon glyphicon-chevron-left" style="padding-right: 5px;"></span>Representatives</a>
+					<h1 class="no-margin">Add authorised representative</h1>
+
+					<div role="tabpanel">
+					
+					  <ul class="nav nav-tabs" role="tablist" style="margin: 40px 0 30px 0;">
+					    <li role="presentation" class="active"><a href="#individual" role="tab" data-toggle="tab">Add a person</a></li>
+					    <li role="presentation"><a href="#business" role="tab" data-toggle="tab">Add a business</a></li>
+					  </ul>
+					  <div class="tab-content">
+					    <div role="tabpanel" class="tab-pane active" id="individual">
+							<p>[Individual by myGov ID, email, mobile phone, etc.]</p>
+							<p>[Agency / Service Authorisations]</p>
+							<p>[Duration]</p>
+							<!--
+							<form>
+								<h2>Representative</h2>
+								<div class="form-group" style="width: 500px">
+									<label>Representative's email address</label>
+									<input type="email" class="form-control" placeholder="name@example.com.au">
+									<span class="help-block">We'll send an invitation code to this email address.<br />
+										<a href="#">Learn more about invitiation codes</a>.
+									</span>
+								</div>
+							  
+							  	<h2 style="margin-top: 40px;">Authorisations</h2>
+								<div class="form-group">
+									<input type="search" class="filter" placeholder="Search" style="width: 250px;"><br />
+									<select size="5" class="filter" style="width: 250px;">
+										<option>ATO</option>
+										<option>ASIC</option>
+									</select>
+								</div>
+								
+								<h2 style="margin-top: 40px;">Duration</h2>
+							</form>
+							-->
+						</div>
+					    <div role="tabpanel" class="tab-pane" id="business">
+							<p>[Business ABN lookup]</p>
+							<p>[Agency / Service Authorisations]</p>
+							<p>[Duration]</p>
+						</div>
+					  </div>
+						
+					</div>
+
+					<div style="margin-top: 60px;">
+						<a href="representatives.html" class="btn btn-primary">Send invitation</a> 
+						<span class="or-cancel">
+							<span>or</span>
+							<a href="representatives.html">Cancel</a>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				<img src="../../assets/images/aus-coat-of-arms.png" class="pull-right" />	
+			</div>
+		</div>
+
+		<!--  -->
+
+	</div>
+</footer>
+
+</body>
+</html>

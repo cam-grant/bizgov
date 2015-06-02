@@ -1,0 +1,259 @@
+<html>
+<head>
+	<meta name="format-detection" content="telephone=no">
+
+<link rel='stylesheet' href='../../e0bd7b8311cae5781f966426e3b0ee63.css'>
+<script src='../../5a09f2cb6ce01d7ffad1b30e3490ff4d.js'></script>
+<title>Inbox</title>	
+	<script id="message-template" type="text/x-handlebars-template">
+	{{#each .}}
+	<a href="message.html?i={{@index}}" class="message {{#read}}read{{/read}}">
+		<div class="icons {{#if attachments}}icon-attachment{{/if}}"></div>
+		<div class="date">{{ date }}</div>
+		<div class="from">{{ from }}</div>
+		<div class="subject">{{ subject }}</div>
+		<!--
+		<div class="tag-list">
+			{{#tags}}
+			<span>{{ . }}</span>
+			{{/tags}}
+		</div>
+		-->
+	</a>
+	{{/each}}
+</script>
+<script>
+
+var messages = [
+	{
+		"date": "Tue 5 May",
+		"from": "Australian Securities and Investments Commision",
+		"subject": "Successful renewal of business name - Jane's Bakery",
+		"attachments": [ "Receipt.pdf" ],
+		"read": false,
+		"tags": [ "ASIC", "Receipt"	],
+		"body": ""
+	},
+	{
+		"date": "Mon 4 May",
+		"from": "Australian Taxation Office",
+		"subject": "RE: Your application",
+		"attachments": ["Form.pdf", "Info.pdf"],
+		"read": false,
+		"tags": [ "ATO", "Tax", "Form" ]
+	},
+	{
+		"date": "Thu 30 Apr",
+		"from": "Australian Securities and Investments Commision",
+		"subject": "ASIC Connect account activation",
+		"attachments": [],
+		"read": true,
+		"tags": [ "ASIC" ]
+	},
+	{
+		"date": "Thu 30 Apr",
+		"from": "Australian Securities and Investments Commision",
+		"subject": "Confirm your email address",
+		"attachments": [],
+		"read": true,
+		"tags": [ "ASIC" ]
+	},
+	{
+		"date": "Mon 27 Apr",
+		"from": "Australian Taxation Office",
+		"subject": "ATO Small Business News",
+		"attachments": [],
+		"read": false,
+		"tags": [ "ATO", "Tax", "News" ]
+	}
+];
+
+	function renderMessages(target, maxCount, unreadOnly, preview, from) {
+
+		var target = $(target);
+		if (preview)
+			target.addClass('message-list-preview');
+
+		var display_messages = messages;
+
+		if (from)
+		{
+			display_messages = $.grep(display_messages, function(m) {
+				return m.from == from;
+			});
+		}
+
+		if (unreadOnly)
+		{
+			display_messages = $.grep(display_messages, function(m) {
+				return !m.read;
+			});
+		}
+
+		if (maxCount > 0)
+		{
+			display_messages = display_messages.slice(0, maxCount);	
+		}
+
+		var source = $("#message-template").html();
+		var template = Handlebars.compile(source);
+		target.html(template(display_messages));
+	}
+</script>
+	<script>
+
+	$(document).ready(function() {
+		updateMessages(false);	  
+	});
+
+	function updateMessages(unreadyOnly)
+	{
+		renderMessages("#messages", 10, unreadyOnly, false, 'Super');	
+	}
+
+	</script>
+</head>
+<body>
+	<div id="account-bar">
+	<div class="container-fluid">
+		<a class='current-parent' id="logo" href="index.html">business.gov.au</a>
+		<div id="user" class="pull-right">
+			<input type="text"></input>
+			<a href="#">Jane Citizen</a>
+		</div>
+	</div>
+</div>
+	<div id="add-biz-dialog" class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add business or notebook</h4>
+      </div>
+      <div class="modal-body">
+        <p>From here users can:</p>
+        <ul style="margin-left: 30px;">
+          <li>Add a tab for a previously linked ABN</li>
+          <li>Link a new ABN and display the tab</li>
+          <li>Add a tab for an existing notebook</li>
+          <li>Create a new notebook and display the tab</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">&nbsp;&nbsp;OK&nbsp;&nbsp;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="container-fluid">
+    
+    <div id="search">
+      <div>Find government services and information</div>
+      <table>
+        <tr>
+          <td><input id="search" type="text" placeholder="Search" /></td>
+          <td><button id="search-button" type="button" class="bt"><span class="glyphicon glyphicon-search"></span></button></td>
+        </tr>
+      </table>
+    </div>
+
+    <nav>
+      <ul>
+        <!--<li><a href="<-- @path index.html ->" class="home">&nbsp;<span>&nbsp;</span></a></li></a>-->
+        <li class='current-parent'><a class='current-parent' href="index.html">Jane's Bakery<span>ABN 66 123 456 789</span></a></li>
+        <!-- <li><a href="">Jane's Catering Services<span>ABN 66 987 654 321</span></a></li> -->
+        <li><a href="#" class="add" data-toggle="modal" data-target="#add-biz-dialog"></a></li>
+      </ul>
+      <div class="clearfix"></div>
+    </nav>
+  </div>
+
+</header>
+
+	<section id="main">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3">
+					<ul id="sub-nav">
+	<li class='current-parent'><a class='current-parent' href="index.html">Home</a></li>
+	<li><a href="messages.html">Inbox<span>3</span></a></li>
+			<li class="folder"><a href="folder1.html">Tax<span>2</span></a></li>
+			<li class="folder"><a href="folder2.html">Registrations<span>1</span></a></li>
+			<li class="current folder"><a class='current' href="folder3.html">Super</a></li>
+	<li><a href="services.html">Services</a></li>
+	<li><a href="iwantto.html">I want to...</a></li>
+	<li><a href="representatives.html">Authorise<span>3</span></a></li>
+	<li><a href="details.html">Business details</a></li>
+	<li><a href="settings.html">Notifications and alerts</a></li>
+	<li class="sep"></li>
+	<li class="icon-cloud"><a href="vault.html">Vault</a></li>
+</ul>
+				</div>
+				<div class="col-sm-9">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="messages-toolbar">
+	<div class="btn-group" data-toggle="buttons">
+	  <label class="btn btn-default active" style="width: 70px;" onclick="updateMessages(false)">
+	    <input type="radio" name="options" autocomplete="off" checked>All
+	  </label>
+	  <label class="btn btn-default" onclick="updateMessages(true)">
+	    <input type="radio" name="options" autocomplete="off">Unread
+	  </label>
+	</div>
+	
+	<div class="dropdown" style="display: inline-block;">
+		<a class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+			From anyone <span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="#">Australian Securities and Investments Commision</a></li>
+			<li><a href="#">Australian Taxation Office</a></li>
+		</ul>
+	</div>
+	<div class="dropdown" style="display: inline-block;">
+		<a class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+			Anytime <span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu" role="menu">
+			<li><a href="#">Anytime</a></li>
+			<li role="presentation" class="divider"></li>
+			<li><a href="#">Today</a></li>
+			<li><a href="#">Yesterday</a></li>
+			<li><a href="#">This week</a></li>
+			<li><a href="#">Last week</a></li>
+			<li><a href="#">This month</a></li>
+			<li><a href="#">This year</a></li>
+		</ul>
+	</div>
+
+	<div style="float: right; width: 200px; margin-left: 5px;">
+		<input type="text" class="form-control" placeholder="Search">
+	</div>
+</div>
+							<div id="messages"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				<img src="../../assets/images/aus-coat-of-arms.png" class="pull-right" />	
+			</div>
+		</div>
+
+		<!--  -->
+
+	</div>
+</footer>
+
+</body>
+</html>
