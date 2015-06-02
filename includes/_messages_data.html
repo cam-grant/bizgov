@@ -71,14 +71,14 @@ var messages = [
 
 		if (from)
 		{
-			display_messages = $.grep(messages, function(m) {
+			display_messages = $.grep(display_messages, function(m) {
 				return m.from == from;
 			});
 		}
 
 		if (unreadOnly)
 		{
-			display_messages = $.grep(messages, function(m) {
+			display_messages = $.grep(display_messages, function(m) {
 				return !m.read;
 			});
 		}
